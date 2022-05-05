@@ -1,0 +1,10 @@
+{
+    "require": {
+        "squizlabs/php_codesniffer": "*"
+    },
+    "scripts": {
+        "phpcsinit": "./vendor/bin/phpcs --config-set default_standard PSR2",
+        "phpcs": "./vendor/bin/phpcs",
+        "phpcbf": "./vendor/bin/phpcbf"
+    }
+}

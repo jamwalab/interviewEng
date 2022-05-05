@@ -1,0 +1,30 @@
+# Use our Dockerfile as the base image
+image:
+  file: .gitpod.Dockerfile
+
+# Open terminals
+tasks:
+  # Bash terminal for user to use
+  - name: Terminal
+    # Install code evaluator
+    init: composer install && composer phpcsinit
+  # Docker terminal to run our Docker containers and let the user see the output
+  - name: Docker
+    init: |
+      docker network create local
+      docker-compose up --no-start --build
+    command: docker-compose up
+    openMode: split-right
+  # Additional Terminals
+
+# Control the exposed ports
+ports:
+  # MySQL
+  - port: 3306
+    onOpen: ignore
+  # NGINX
+  - port: 8080
+    onOpen: open-preview
+  # Adminer
+  - port: 8033
+    onOpen: notify
