@@ -496,3 +496,99 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-white {
   background-color: rgb(255 255 255);
 }
+
+.flex-row {
+  flex-direction: row;
+}
+
+.table-fixed {
+  table-layout: fixed;
+}
+
+.w30 {
+  width: 30%;
+}
+
+.w20 {
+  width: 20%;
+}
+
+.w10 {
+  width: 10%;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.text-left {
+  text-align: left;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  word-wrap: break-word;
+}
+
+thead {
+  background-color: rgb(30, 80, 140);
+  color: #fff;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.pagination {
+  width: 100%;
+  list-style: none;
+  text-align: center;
+  padding: 5px 15px;
+}
+
+.pagination .sm\:hidden {
+  display: none;
+}
+
+.sm\:flex {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sm\:flex .z-0 {
+  display: inline-flex;
+  align-items: center;
+}
+
+.sm\:flex .z-0 svg{
+  height: 24px;
+}
+
+.pagination a {
+  text-decoration: none;
+  padding: 0.2rem 0.4rem;
+  color: black;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.sm\:flex .z-0 span{
+  padding: 0.2rem 0.2rem;
+  display: inline-flex;
+}
+
