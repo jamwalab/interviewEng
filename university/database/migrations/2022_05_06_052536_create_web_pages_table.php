@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('web_pages', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_university');
+            $table->foreignId('universities_id')->references('id')->on('universities')->onDelete('cascade');
             $table->string('url');
+            $table->timestamps();
         });
     }
 

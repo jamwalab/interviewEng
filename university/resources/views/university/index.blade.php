@@ -23,12 +23,12 @@
                             <td class="w10">{{$data -> alpha_two_code}}</td>
                             <td class="w20">
                                 @foreach ($data -> domains as $domain)
-                                    <p>{{$domain}}</p>
+                                    <p>{{$domain->domain_name}}</p>
                                 @endforeach
                             </td>
                             <td class="w20">
                                 @foreach ($data -> web_pages as $webPage)
-                                    <p>{{$webPage}}</p>
+                                    <p>{{$webPage->url}}</p>
                                 @endforeach
                             </td>
                         </tr>

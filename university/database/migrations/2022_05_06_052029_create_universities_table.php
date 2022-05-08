@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('universities', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('name');
             $table->string('country');
-            $table->string('state-province');
+            $table->string('state-province')->nullable();
+            $table->string('alpha_two_code');
+            $table->timestamps();
         });
     }
 

@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('domains', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_university');
-            $table->string('domain_name')->unique();
+            $table->foreignId('universities_id')->references('id')->on('universities')->onDelete('cascade');
+            $table->string('domain_name');
+            $table->timestamps();
         });
     }
 
