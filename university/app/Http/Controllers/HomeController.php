@@ -9,7 +9,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 use App\Models\Universities;
-use App\Models\Domain;
+use App\Models\Domains;
 use App\Models\WebPage;
 
 class HomeController extends Controller
@@ -26,7 +26,10 @@ class HomeController extends Controller
 
         $universityData = $this->paginate($this->getDbData());
 
-
+        if (count($universityData) === 0) {
+            $this->addApiData($this->getApiData());
+            $universityData = $this->paginate($this->getDbData());
+        }
 
         return view('university.index', compact('universityData'));
         /*return view('university.index', [
@@ -50,7 +53,7 @@ class HomeController extends Controller
         //$uvivDbData = $this->getApiData();
 
         $uvivDbData = response(
-            array_values(Universities::with('Domain')->with('WebPage')->get()->toArray())
+            array_values(Universities::with('Domains')->with('WebPage')->get()->toArray())
         )->getContent();
         //dd(json_decode($uvivDbData)[0]);
         //dd($uvivDbData);
@@ -70,7 +73,7 @@ class HomeController extends Controller
 
             foreach ($line->domains as $domain) {
                 //dd($domain);
-                Domain::create([
+                Domains::create([
                     'universities_id' => $univ -> id,
                     'domain_name' => $domain
                 ]);

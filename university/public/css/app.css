@@ -556,7 +556,9 @@ thead {
   width: 100%;
   list-style: none;
   text-align: center;
-  padding: 5px 15px;
+  padding: 10px 20px;
+  background-color: rgb(30, 80, 140);
+  color: #fff;
 }
 
 .pagination .sm\:hidden {
@@ -570,7 +572,7 @@ thead {
   align-items: center;
 }
 
-.sm\:flex .z-0 {
+.sm\:flex .z-0, .sm\:flex div {
   display: inline-flex;
   align-items: center;
 }
@@ -587,8 +589,15 @@ thead {
   border-radius: 3px;
 }
 
-.sm\:flex .z-0 span{
-  padding: 0.2rem 0.2rem;
+.sm\:flex .z-0 span span{
+  padding: 0.14rem 0.4rem;
+  margin: 0;
   display: inline-flex;
+  color: rgb(185, 185, 185);
+  border: 1px solid rgb(185, 185, 185);
+  border-radius: 3px;
 }
 
+.multiDomain {
+  background-color: rgb(198, 215, 235);
+}

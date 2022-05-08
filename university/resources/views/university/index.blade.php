@@ -16,7 +16,7 @@
                 </thead>
                 <tbody>
                     @foreach ($universityData as $data)
-                        <tr class="">
+                        <tr class="{{count($data -> domains) > 1 ? 'multiDomain' : ''}}">
                             <td class="w30">{{$data -> name}}</td>
                             <td class="w10">{{$data->{'state-province'} === null ? "" : ($data->{'state-province'}) }}</td>
                             <td class="w10">{{$data -> country}}</td>
@@ -27,7 +27,7 @@
                                 @endforeach
                             </td>
                             <td class="w20">
-                                @foreach ($data -> web_pages as $webPage)
+                                @foreach ($data -> web_page as $webPage)
                                     <p>{{$webPage->url}}</p>
                                 @endforeach
                             </td>
@@ -39,7 +39,7 @@
                 {!! $universityData->links() !!}
             </div>
         @else
-            No Data
+            No University data to display!!
         @endif
     </div>
 @endsection

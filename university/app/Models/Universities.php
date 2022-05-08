@@ -16,8 +16,8 @@ class Universities extends Model
         'alpha_two_code'
     ];
 
-    public function domain() {
-        return $this->hasMany(Domain::class);
+    public function domains() {
+        return $this->hasMany(Domains::class);
     }
 
     public function webPage() {
