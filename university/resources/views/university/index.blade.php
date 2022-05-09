@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mx-auto p-4">
+    <div class="container mx-auto p-4" id="univData">
         @if (count($universityData))
             <table class="table-fixed w100 text-left">
                 <thead>

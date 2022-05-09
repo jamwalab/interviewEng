@@ -15,15 +15,6 @@ use App\Models\WebPage;
 class HomeController extends Controller
 {
     public function index() {
-        //$json = json_decode(file_get_contents("http://universities.hipolabs.com/search?country=canada"));
-        //dd($json);
-        //return response()->json($json); 
-        //$universityApiData = $this->getApiData();
-
-        //$universityData = $this->paginate($this->getApiData());
-
-        //$this->addApiData($this->getApiData());
-
         $universityData = $this->paginate($this->getDbData());
 
         if (count($universityData) === 0) {
@@ -32,9 +23,6 @@ class HomeController extends Controller
         }
 
         return view('university.index', compact('universityData'));
-        /*return view('university.index', [
-            'universityData' => $universityData
-        ]);*/
     }
 
     public function getApiData() {
@@ -45,24 +33,13 @@ class HomeController extends Controller
     }
 
     public function getDbData() {
-        /*$uvivDbData = Universities::join('domains', 'universities.id', '=', 'domains.universities_id')
-                        ->join('web_pages', 'universities.id', '=', 'web_pages.universities_id')
-                        ->select('universities.name', 'universities.country', 'universities.state-province', 'universities.alpha_two_code', 'domains.domain_name', 'web_pages.url')
-                        ->get()->toArray();*/
-        //$uvivDbData = Universities::with('Domain')->with('WebPage')->get()->toArray();
-        //$uvivDbData = $this->getApiData();
-
         $uvivDbData = response(
             array_values(Universities::with('Domains')->with('WebPage')->get()->toArray())
         )->getContent();
-        //dd(json_decode($uvivDbData)[0]);
-        //dd($uvivDbData);
         return json_decode($uvivDbData);
     }
 
     public function addApiData(array $data) {
-        //$universities = $this->getApiData();
-
         foreach ($data as $line) {
             $univ = Universities::create([
                 'name' => $line->name,
@@ -72,7 +49,6 @@ class HomeController extends Controller
             ]);
 
             foreach ($line->domains as $domain) {
-                //dd($domain);
                 Domains::create([
                     'universities_id' => $univ -> id,
                     'domain_name' => $domain
