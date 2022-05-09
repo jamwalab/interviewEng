@@ -13,8 +13,3 @@ use App\Http\Controllers\HomeController;
 |
 */
 Route::get('/', [HomeController::class, 'index']);
-
-/*Route::get('/aa', function () {
-    return view('university.index');
-});*/
-
